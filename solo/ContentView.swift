@@ -12,9 +12,10 @@ struct ContentView: View {
     @State private var message = "Welcome!"
     @State private var flag = true
     @State private var currentState = 0
-
+    @State private var newItem = ""
+    @State private var items: [String] = []
     
-    var text: String = "Azim"
+
     
     
     
@@ -26,11 +27,24 @@ struct ContentView: View {
             Color.yellow.ignoresSafeArea()
             
             VStack(spacing: 20) {
+                TextField("Введите текс", text: $newItem)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Button("Добавить"){
+                    if !newItem.isEmpty {
+                        items.append(newItem)
+                        newItem = ""
+                        print(items)
+                    }
+                }
+                List(items, id: \.self){ item in
+                    Text(item)
+                }
+                
                 Text(currentText())
                     .font(.title)
                 Text(message)
                     .font(.title)
-                    .padding()
+                    //.padding()
                 Text(flag ? "One" : "Two")
                     .font(.largeTitle)
                 Button( "Нажми меня"){
@@ -95,12 +109,12 @@ struct ContentView: View {
     }
     func currentText() -> String {
         switch currentState{
-        case 0: "Hello"
-        case 1: "Привет"
-        case 2: "Salam"
-        case 3: "Aloha"
+        case 0: return "Hello"
+        case 1: return "Привет"
+        case 2: return "Salam"
+        case 3: return "Aloha"
         default:
-            ""
+            return ""
         }
     }
 }
