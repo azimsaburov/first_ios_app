@@ -29,11 +29,16 @@ struct ContentView: View {
             VStack(spacing: 20) {
                 TextField("Введите текс", text: $newItem)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button("Добавить"){
+                HStack(){
+                    Button("Добавить"){
                     if !newItem.isEmpty {
                         items.append(newItem)
                         newItem = ""
                         print(items)
+                        }
+                    }
+                    Button("Очистить"){
+                        items = []
                     }
                 }
                 List(items, id: \.self){ item in
