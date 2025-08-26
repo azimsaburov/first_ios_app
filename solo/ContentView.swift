@@ -37,14 +37,20 @@ struct ContentView: View {
                         print(items)
                         }
                     }
-                    Button("Очистить"){
+                    Button("Очистить все"){
                         items = []
                     }
                 }
-                List(items, id: \.self){ item in
-                    Text(item)
+                List{
+                    ForEach(items, id: \.self){ item in
+                    HStack(){
+                        Image(systemName: "note.text")
+                            .foregroundColor(.orange)
+                        Text(item)
+                        }
+                    }
+                    .onDelete(perform: deleteItem)
                 }
-                
                 Text(currentText())
                     .font(.title)
                 Text(message)
@@ -121,6 +127,9 @@ struct ContentView: View {
         default:
             return ""
         }
+    }
+    func deleteItem( at offsets: IndexSet){
+        items.remove(atOffsets: offsets)
     }
 }
 
