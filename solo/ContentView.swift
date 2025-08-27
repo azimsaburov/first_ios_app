@@ -15,106 +15,117 @@ struct ContentView: View {
     @State private var newItem = ""
     @State private var items: [String] = []
     
-
-    
-    
-    
-    
-    
     
     var body: some View {
-        ZStack{
-            Color.yellow.ignoresSafeArea()
-            
-            VStack(spacing: 20) {
-                TextField("Введите текс", text: $newItem)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                HStack(){
-                    Button("Добавить"){
-                    if !newItem.isEmpty {
-                        items.append(newItem)
-                        newItem = ""
-                        print(items)
-                        }
-                    }
-                    Button("Очистить все"){
-                        items = []
-                    }
-                }
-                List{
-                    ForEach(items, id: \.self){ item in
+        NavigationStack{
+            ZStack{
+                Color.yellow.ignoresSafeArea()
+                
+                VStack(spacing: 20) {
+                    TextField("Введите текс", text: $newItem)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     HStack(){
-                        Image(systemName: "note.text")
-                            .foregroundColor(.orange)
-                        Text(item)
+                        Button("Добавить"){
+                            if !newItem.isEmpty {
+                                items.append(newItem)
+                                newItem = ""
+                                print(items)
+                            }
                         }
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        Button("Очистить все"){
+                            items = []
+                        }
+                        .foregroundColor(.red)
                     }
-                    .onDelete(perform: deleteItem)
-                }
-                Text(currentText())
-                    .font(.title)
-                Text(message)
-                    .font(.title)
+                    List{
+                        ForEach(items, id: \.self){ item in
+                            HStack(){
+                                Image(systemName: "note.text")
+                                    .foregroundColor(.orange)
+                                Text(item)
+                            }
+                        }
+                        
+                        .onDelete(perform: deleteItem)
+                    }
+                    //                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    //                .fixedSize()
+                    Text(currentText())
+                        .font(.title)
+                    Text(message)
+                        .font(.title)
                     //.padding()
-                Text(flag ? "One" : "Two")
-                    .font(.largeTitle)
-                Button( "Нажми меня"){
-                    if flag == true {
-                        message = "Hi"
-                    }else {
-                        message = "Bro"
+                    Text(flag ? "One" : "Two")
+                        .font(.largeTitle)
+                    Button( "Нажми меня"){
+                        if flag == true {
+                            message = "Hi"
+                        }else {
+                            message = "Bro"
+                        }
+                        flag.toggle()
+                        currentState = ( currentState + 1) % 4
                     }
-                    flag.toggle()
-                    currentState = ( currentState + 1) % 4
-                }
-                .padding()
-                .background(Color.white.opacity(0.4))
-                .cornerRadius(100)
-                Text("Счетчик: \(counter)")
-                //.font(.headline)
-                    .foregroundColor(.red)
                     .padding()
-                    .font(.system(size: 20, weight: .bold))
-                    .background(Color.blue.opacity(0.2))
-                    .cornerRadius(5)
-                HStack(spacing: 30){            Button(action: {
-                    counter += 1
-                    print("Кнопка нажата, текушее занчение: \(counter)")}){
-                        Text("Плюс один")
-                    }
-                    Button(action: {
-                        counter -= 1
+                    .background(Color.white.opacity(0.4))
+                    .cornerRadius(100)
+                    Text("Счетчик: \(counter)")
+                    //.font(.headline)
+                        .foregroundColor(.red)
+                        .padding()
+                        .font(.system(size: 20, weight: .bold))
+                        .background(Color.blue.opacity(0.2))
+                        .cornerRadius(5)
+                    HStack(spacing: 30){            Button(action: {
+                        counter += 1
                         print("Кнопка нажата, текушее занчение: \(counter)")}){
-                            Text("Минус один")
-                                .padding()
-                                .background(Color.gray.opacity(0.2))
-                                .cornerRadius(20)
-                        }}
-                Button(action: {
-                    counter = 0
-                    print("Кнопка нажата, текушее занчение: \(counter)")}){
-                        Text("Сброс")
-                            .padding()
-                            .font(.system(size: 20, weight: .bold))
-                            .background(Color.blue.opacity(0.2))
-                            .cornerRadius(5)
+                            Text("Плюс один")
+                        }
+                        Button(action: {
+                            counter -= 1
+                            print("Кнопка нажата, текушее занчение: \(counter)")}){
+                                Text("Минус один")
+                                    .padding()
+                                    .background(Color.gray.opacity(0.2))
+                                    .cornerRadius(20)
+                            }
+                    }
+                    HStack (spacing: 10){
+                        Button(action: {
+                            counter = 0
+                            print("Кнопка нажата, текушее занчение: \(counter)")}){
+                                Text("Сброс")
+                                    .padding()
+                                    .font(.system(size: 20, weight: .bold))
+                                    .background(Color.blue.opacity(0.2))
+                                    .cornerRadius(5)
+                                
+                            }
+                        NavigationLink("Next"){
+                            NextView()
+                        }
+                        .padding()
+                        
                         
                     }
-                
-                if counter == 10 {
-                    Text("Круто Десяточка!")
-                        .font(.system(size: 30, weight: .medium))
+                    
+                    if counter == 10 {
+                        Text("Круто Десяточка!")
+                            .font(.system(size: 30, weight: .medium))
+                    }
+                    else if counter >= 5 || counter <= -3 {
+                        Text("Красава!")
+                            .font(.system(size: 30, weight: .medium))
+                    }
+                    else {
+                        Text("🤔")
+                            .font(.system(size: 30, weight: .medium))
+                    }
+                    
                 }
-                else if counter >= 5 || counter <= -3 {
-                    Text("Красава!")
-                        .font(.system(size: 30, weight: .medium))
-                }
-                else {
-                    Text("🤔")
-                        .font(.system(size: 30, weight: .medium))
-                }
+                .padding()
             }
-            .padding()
             
         }
     }
