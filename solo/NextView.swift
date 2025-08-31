@@ -13,30 +13,58 @@ struct NextView: View {
     
     
     var body: some View {
-        ZStack{
-            Color.mint.ignoresSafeArea()
-            VStack( spacing: 20){
-                TextField("Введите текс", text: $textItem)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                HStack( spacing: 20){
-                    Button("Добавить"){
-                        print("Privet")
+        NavigationStack{
+            ZStack{
+                Color.mint.ignoresSafeArea()
+                VStack( spacing: 20){
+                    
+                    TextField("Введите текс", text: $textItem)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    HStack( spacing: 20){
+                        Button("Добавить"){
+                            if !textItem.isEmpty{
+                                listItem.append(textItem)
+                                textItem = ""
+                                print(listItem)
+                            }
+                        }
+                        .padding( )
+                        .background(Color.blue.opacity(0.2))
+                        .cornerRadius(20)
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                        Button("Очистить все"){
+                            print("Delete All")
+                            listItem = []
+                        }
+                        .padding()
+                        .background(Color.red.opacity(0.2))
+                        .cornerRadius(20)
+                        .foregroundColor(.red)
                     }
-                    .padding( )
-                    .background(Color.blue.opacity(0.2))
-                    .cornerRadius(20)
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                    Button("Очистить все"){
-                        print("Boom")
+                    NavigationLink("LoansScreen"){
+                        LoansView()
                     }
                     .padding()
-                    .background(Color.red.opacity(0.2))
-                    .cornerRadius(20)
-                    .foregroundColor(.red)
+                    .font(.headline)
+                    List{
+                        ForEach(listItem, id: \.self){ item in
+                            HStack(){
+                                Image(systemName: "note.text")
+                                    .foregroundColor(.orange)
+                                Text(item)
+                            }
+                        }
+                        .onDelete(perform: deleteItem)
+                    }
+                    Spacer()
                 }
+                .padding()
             }
-            .padding()
         }
+        .navigationTitle("Заметки")
+    }
+    func deleteItem( at offsets: IndexSet){
+        listItem.remove(atOffsets: offsets)
     }
 }
 #Preview {

@@ -1,19 +1,44 @@
 //
-//  detailView.swift
+//  DetailView.swift
 //  solo
 //
-//  Created by ZI on 8/27/25.
+//  Created by ZI on 8/31/25.
 //
 
 import SwiftUI
 
 struct DetailView: View {
-    let note: String
+    @Binding var loan: Loan
+    @State private var showStatusSheet = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack(spacing: 20){
+                Text(loan.name)
+                    .font(.title)
+                Text("Sum: \(loan.amount)")
+                    .font(.title2)
+                Text(loan.status)
+                    .font(.title3)
+                    .foregroundColor( loan.status == "Одобрен" ? .green : loan.status == "Отказан" ? .red : .orange)
+                Spacer()
+                Button("Изменить Статус"){
+                    showStatusSheet.toggle()
+                }
+                .padding()
+                .background(Color.blue.opacity(0.2))
+                .cornerRadius(20)
+                Spacer()
+            }
+            .padding()
+            .sheet(isPresented: $showStatusSheet){
+                StatusEditView(loan: $loan)
+            }
+        }
+        .navigationTitle("Детали заявки")
     }
 }
 
 #Preview {
-    DetailView(note: <#String#>)
+    DetailView(loan: .constant(Loan(name: "Name", amount: 12345, status: "Status")))
 }

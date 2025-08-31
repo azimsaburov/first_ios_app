@@ -15,6 +15,10 @@
 		5425A7DA2E5884D600C779D9 /* soloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7D92E5884D600C779D9 /* soloUITests.swift */; };
 		5425A7DC2E5884D600C779D9 /* soloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7DB2E5884D600C779D9 /* soloUITestsLaunchTests.swift */; };
 		5425A7F12E5F0D0900C779D9 /* NextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7F02E5F0D0800C779D9 /* NextView.swift */; };
+		5425A7F52E643D9500C779D9 /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7F42E643D9500C779D9 /* Loan.swift */; };
+		5425A7F72E643F5800C779D9 /* LoansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7F62E643F5800C779D9 /* LoansView.swift */; };
+		5425A7F92E6443CA00C779D9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7F82E6443CA00C779D9 /* DetailView.swift */; };
+		5425A7FC2E6459E800C779D9 /* StatusEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7FB2E6459E800C779D9 /* StatusEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,10 @@
 		5425A7D92E5884D600C779D9 /* soloUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soloUITests.swift; sourceTree = "<group>"; };
 		5425A7DB2E5884D600C779D9 /* soloUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = soloUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5425A7F02E5F0D0800C779D9 /* NextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextView.swift; sourceTree = "<group>"; };
+		5425A7F42E643D9500C779D9 /* Loan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
+		5425A7F62E643F5800C779D9 /* LoansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansView.swift; sourceTree = "<group>"; };
+		5425A7F82E6443CA00C779D9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		5425A7FB2E6459E800C779D9 /* StatusEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,11 +104,15 @@
 		5425A7BD2E5884D300C779D9 /* solo */ = {
 			isa = PBXGroup;
 			children = (
+				5425A7FA2E6443F600C779D9 /* data */,
 				5425A7BE2E5884D300C779D9 /* soloApp.swift */,
 				5425A7C02E5884D300C779D9 /* ContentView.swift */,
 				5425A7C22E5884D600C779D9 /* Assets.xcassets */,
 				5425A7C42E5884D600C779D9 /* Preview Content */,
 				5425A7F02E5F0D0800C779D9 /* NextView.swift */,
+				5425A7F62E643F5800C779D9 /* LoansView.swift */,
+				5425A7F82E6443CA00C779D9 /* DetailView.swift */,
+				5425A7FB2E6459E800C779D9 /* StatusEditView.swift */,
 			);
 			path = solo;
 			sourceTree = "<group>";
@@ -128,6 +140,14 @@
 				5425A7DB2E5884D600C779D9 /* soloUITestsLaunchTests.swift */,
 			);
 			path = soloUITests;
+			sourceTree = "<group>";
+		};
+		5425A7FA2E6443F600C779D9 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				5425A7F42E643D9500C779D9 /* Loan.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +281,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5425A7C12E5884D300C779D9 /* ContentView.swift in Sources */,
+				5425A7F92E6443CA00C779D9 /* DetailView.swift in Sources */,
+				5425A7FC2E6459E800C779D9 /* StatusEditView.swift in Sources */,
 				5425A7BF2E5884D300C779D9 /* soloApp.swift in Sources */,
+				5425A7F72E643F5800C779D9 /* LoansView.swift in Sources */,
 				5425A7F12E5F0D0900C779D9 /* NextView.swift in Sources */,
+				5425A7F52E643D9500C779D9 /* Loan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +455,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -459,6 +484,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

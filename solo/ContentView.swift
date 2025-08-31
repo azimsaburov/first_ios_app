@@ -12,45 +12,14 @@ struct ContentView: View {
     @State private var message = "Welcome!"
     @State private var flag = true
     @State private var currentState = 0
-    @State private var newItem = ""
-    @State private var items: [String] = []
     
     
     var body: some View {
-        NavigationStack{
+        NavigationView{
             ZStack{
                 Color.yellow.ignoresSafeArea()
                 
                 VStack(spacing: 20) {
-                    TextField("Введите текс", text: $newItem)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                    HStack(){
-                        Button("Добавить"){
-                            if !newItem.isEmpty {
-                                items.append(newItem)
-                                newItem = ""
-                                print(items)
-                            }
-                        }
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                        Button("Очистить все"){
-                            items = []
-                        }
-                        .foregroundColor(.red)
-                    }
-                    List{
-                        ForEach(items, id: \.self){ item in
-                            HStack(){
-                                Image(systemName: "note.text")
-                                    .foregroundColor(.orange)
-                                Text(item)
-                            }
-                        }
-                        
-                        .onDelete(perform: deleteItem)
-                    }
-                    //                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                    //                .fixedSize()
                     Text(currentText())
                         .font(.title)
                     Text(message)
@@ -128,6 +97,8 @@ struct ContentView: View {
             }
             
         }
+        .navigationTitle("Главнаяааааааааааааааааааааааа")
+        
     }
     func currentText() -> String {
         switch currentState{
@@ -138,9 +109,6 @@ struct ContentView: View {
         default:
             return ""
         }
-    }
-    func deleteItem( at offsets: IndexSet){
-        items.remove(atOffsets: offsets)
     }
 }
 
