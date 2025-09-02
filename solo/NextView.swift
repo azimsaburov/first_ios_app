@@ -13,7 +13,6 @@ struct NextView: View {
     
     
     var body: some View {
-        NavigationStack{
             ZStack{
                 Color.mint.ignoresSafeArea()
                 VStack( spacing: 20){
@@ -60,7 +59,6 @@ struct NextView: View {
                 }
                 .padding()
             }
-        }
         .navigationTitle("Заметки")
     }
     func deleteItem( at offsets: IndexSet){

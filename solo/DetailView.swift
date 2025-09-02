@@ -12,11 +12,10 @@ struct DetailView: View {
     @State private var showStatusSheet = false
     
     var body: some View {
-        NavigationStack{
             VStack(spacing: 20){
                 Text(loan.name)
                     .font(.title)
-                Text("Sum: \(loan.amount)")
+                Text("Сумма: \(loan.amount)")
                     .font(.title2)
                 Text(loan.status)
                     .font(.title3)
@@ -34,7 +33,6 @@ struct DetailView: View {
             .sheet(isPresented: $showStatusSheet){
                 StatusEditView(loan: $loan)
             }
-        }
         .navigationTitle("Детали заявки")
     }
 }

@@ -19,6 +19,7 @@
 		5425A7F72E643F5800C779D9 /* LoansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7F62E643F5800C779D9 /* LoansView.swift */; };
 		5425A7F92E6443CA00C779D9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7F82E6443CA00C779D9 /* DetailView.swift */; };
 		5425A7FC2E6459E800C779D9 /* StatusEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7FB2E6459E800C779D9 /* StatusEditView.swift */; };
+		5425A7FE2E66E58A00C779D9 /* SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5425A7FD2E66E58A00C779D9 /* SwiftUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		5425A7F62E643F5800C779D9 /* LoansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoansView.swift; sourceTree = "<group>"; };
 		5425A7F82E6443CA00C779D9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		5425A7FB2E6459E800C779D9 /* StatusEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusEditView.swift; sourceTree = "<group>"; };
+		5425A7FD2E66E58A00C779D9 /* SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				5425A7F62E643F5800C779D9 /* LoansView.swift */,
 				5425A7F82E6443CA00C779D9 /* DetailView.swift */,
 				5425A7FB2E6459E800C779D9 /* StatusEditView.swift */,
+				5425A7FD2E66E58A00C779D9 /* SwiftUI.swift */,
 			);
 			path = solo;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				5425A7C12E5884D300C779D9 /* ContentView.swift in Sources */,
 				5425A7F92E6443CA00C779D9 /* DetailView.swift in Sources */,
 				5425A7FC2E6459E800C779D9 /* StatusEditView.swift in Sources */,
+				5425A7FE2E66E58A00C779D9 /* SwiftUI.swift in Sources */,
 				5425A7BF2E5884D300C779D9 /* soloApp.swift in Sources */,
 				5425A7F72E643F5800C779D9 /* LoansView.swift in Sources */,
 				5425A7F12E5F0D0900C779D9 /* NextView.swift in Sources */,

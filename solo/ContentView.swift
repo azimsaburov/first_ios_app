@@ -15,7 +15,7 @@ struct ContentView: View {
     
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             ZStack{
                 Color.yellow.ignoresSafeArea()
                 
@@ -97,7 +97,7 @@ struct ContentView: View {
             }
             
         }
-        .navigationTitle("Главнаяааааааааааааааааааааааа")
+        .navigationTitle("Главная")
         
     }
     func currentText() -> String {

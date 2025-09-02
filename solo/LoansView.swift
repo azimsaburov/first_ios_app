@@ -19,8 +19,7 @@ struct LoansView: View {
         Loan(name: "Askarov Timur", amount: 1000, status: "Одобрен"),
     ]
     var body: some View {
-        NavigationStack{
-            VStack(spacing: 20){
+        VStack(spacing: 20){
             List{
                 ForEach($loans){ $loans in
                     NavigationLink(destination: DetailView(loan: $loans)){
@@ -38,7 +37,6 @@ struct LoansView: View {
                         
                         
                     }
-                }
                 }
             }
         }

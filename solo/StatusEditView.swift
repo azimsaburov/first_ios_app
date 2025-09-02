@@ -13,7 +13,6 @@ struct StatusEditView: View {
     
     let statuses = ["Одобрено", "На рассмотрении", "Отказано"]
     var body: some View {
-        NavigationStack{
             List{
                 ForEach(statuses, id: \.self) { status in
                     Button{
@@ -31,7 +30,6 @@ struct StatusEditView: View {
                     }
                 }
             }
-        }
         .navigationTitle("Выберите статус")
         .toolbar{
             ToolbarItem(placement: .cancellationAction){
